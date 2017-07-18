@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import time
 from Elements.Wheel import Wheel
-from Elements.HCSR04 import HCSR04
 
 '''Be "Turbo Oafish Nothing"'''
 '''BeTon - Simple Raspberry Pi robot'''
@@ -57,3 +56,10 @@ class BeTon:
 		self.goBackward()
 		time.sleep(t)
 		self.stop()
+
+	def automove(self, s):
+		if (s.read() > 45 and s.read() < 500):
+			self.goForwardTime(0.5)
+			time.sleep(0.15)
+		else:
+			self.turnLeft(90)
