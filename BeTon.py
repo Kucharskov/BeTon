@@ -89,8 +89,9 @@ class BeTon:
 				self.goForwardTime(.15)
 			else:
 				self.goBackwardTime(.15)
-				if random.randint(0, 1): #a po co kombinować z losowaniem 1, 100 - moszna i tak
+				if random.randint(0, 1):
 					self.turnRight(45)
+				else:
 					self.turnLeft(45)
 
 	def __del__(self):
