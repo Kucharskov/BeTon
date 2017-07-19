@@ -30,4 +30,8 @@ class HCSR04:
 		while GPIO.input(self.echoPin) == 1:
 			stop = time.time()
 
-		return (stop - start) * 17150
+		dist = (stop - start) * 17150
+		if dist < 3000:
+			return dist
+		else:
+			return 0
