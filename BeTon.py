@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import time
 from Elements.Wheel import Wheel
+from Elements.HCSR04 import HCSR04
 
 '''Be "Turbo Oafish Nothing"'''
 '''BeTon - Simple Raspberry Pi robot'''
@@ -14,6 +15,7 @@ class BeTon:
 		self.lWheel = Wheel(lfPin, lbPin)
 		self.rWheel = Wheel(rfPin, rbPin)
 		self.rotatetime = rotatetime
+		self.setupradar = False
 
 	def stop(self):
 		self.lWheel.stop()
@@ -57,12 +59,19 @@ class BeTon:
 		time.sleep(t)
 		self.stop()
 
-	def automove(self, sensor):
-		#print(sensor.read())
-		if (sensor.read() > 35):
-			self.goForward()
-		else:
-			self.goBackwardTime(.15)
-			self.turnLeft(45)
-			if (sensor.read() < 35):
-				self.turnRight(90)
+	def setupRadar(self, trigPin, echoPin):
+		self.radar = HCSR04(trigPin, echoPin)
+		self.setupradar = True
+
+	def automove(self, log = False):
+		if self.setupradar:
+			if log:
+				print(self.radar.read())
+
+			if (self.radar.read() > 35):
+				self.goForward()
+			else:
+				self.goBackwardTime(.15)
+				self.turnLeft(45)
+				if (self.radar.read() < 35):
+					self.turnRight(90)
