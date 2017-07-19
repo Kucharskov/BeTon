@@ -34,28 +34,3 @@ class Wheel:
 		self.goBackward()
 		time.sleep(t)
 		self.stop()
-		
-class WheelPWM(Wheel):
-	#ToDo: Ogarnąć działanie za pomocą start(dc) i stop(dc)
-	#Link: https://sourceforge.net/p/raspberry-gpio-python/wiki/PWM/
-	def __init__(self, fPin, bPin, power = 100):
-		self.power = power
-		GPIO.setmode(GPIO.BOARD)
-		self.f = GPIO.PWM(fPin, 100)
-		self.b = GPIO.PWM(bPin, 100)
-
-	def stop(self):
-		self.f.stop()
-		self.b.stop()
-
-	def goForward(self):
-		self.b.stop()
-		self.f.start(self.power)
-
-	def goBackward(self):
-		self.f.stop()
-		self.b.start(self.power)
-		
-	def changePower(self, power):
-		self.f.ChangeDutyCycle(power)
-		self.b.ChangeDutyCycle(power)
