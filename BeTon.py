@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import time
 import random
+import RPi.GPIO as GPIO
 from Elements.Wheel import Wheel
 from Elements.HCSR04 import HCSR04
 from Elements.Light import Light
@@ -91,3 +92,8 @@ class BeTon:
 				if random.randint(0, 100) % 2 == 0:
 					self.turnRight(45)
 					self.turnLeft(45)
+
+	def __del__(self):
+		self.stop()
+		print("Zakonczono prace robota")
+		GPIO.cleanup()
