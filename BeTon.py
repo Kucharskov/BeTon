@@ -89,7 +89,7 @@ class BeTon:
 				self.goForwardTime(.15)
 			else:
 				self.goBackwardTime(.15)
-				if random.randint(0, 100) % 2 == 0:
+				if random.randint(0, 1): #a po co kombinować z losowaniem 1, 100 - moszna i tak
 					self.turnRight(45)
 					self.turnLeft(45)
 
