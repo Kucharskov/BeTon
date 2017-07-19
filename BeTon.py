@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import time
+import random
 from Elements.Wheel import Wheel
 from Elements.HCSR04 import HCSR04
 
@@ -71,9 +72,9 @@ class BeTon:
 				print(self.radar.read())
 
 			if (self.radar.read() > 35):
-				self.goForward()
+				self.goForwardTime(.15)
 			else:
 				self.goBackwardTime(.15)
-				self.turnLeft(45)
-				if (self.radar.read() < 35):
-					self.turnRight(90)
+				if random.randint(0, 100) % 2 == 0:
+					self.turnRight(45)
+					self.turnLeft(45)
