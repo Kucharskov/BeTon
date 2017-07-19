@@ -8,6 +8,6 @@ if __name__ == "__main__":
 		bot.setupRadar(33, 36)
 				
 		while True:
-			bot.automove(True)
+			bot.automove()
 	except KeyboardInterrupt:
 		bot.stop()
