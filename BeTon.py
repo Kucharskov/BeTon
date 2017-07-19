@@ -22,10 +22,12 @@ class BeTon:
 		self.rWheel.stop()
 
 	def goForward(self):
+		self.stop()
 		self.lWheel.goForward()
 		self.rWheel.goForward()
 
 	def goBackward(self):
+		self.stop()
 		self.lWheel.goBackward()
 		self.rWheel.goBackward()
 

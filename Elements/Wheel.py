@@ -20,9 +20,11 @@ class Wheel:
 		GPIO.output(self.bPin, GPIO.LOW)
 
 	def goForward(self):
+		self.stop()
 		GPIO.output(self.fPin, GPIO.HIGH)
 
 	def goBackward(self):
+		self.stop()
 		GPIO.output(self.bPin, GPIO.HIGH)
 
 	def goForwardTime(self, t):
