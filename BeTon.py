@@ -60,6 +60,6 @@ class BeTon:
 	def automove(self, s):
 		if (s.read() > 45 and s.read() < 500):
 			self.goForwardTime(0.5)
-			time.sleep(0.15)
+			time.sleep(.15)
 		else:
 			self.turnLeft(90)
