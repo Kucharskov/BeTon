@@ -9,7 +9,7 @@ from Elements.Light import Light
 '''Be "Turbo Oafish Nothing"'''
 '''BeTon - Simple Raspberry Pi robot'''
 __author__ = "M. Kucharskov"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __maintainer__ = "M. Kucharskov"
 __email__ = "M@Kucharskov.pl"
 

@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 '''BeTon light module'''
 __author__ = "M. Kucharskov"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 class Light:
 	def __init__(self, pin):

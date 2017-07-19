@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 '''BeTon HC-SR04 sensor module'''
 __author__ = "M. Kucharskov"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 class HCSR04:
 	def __init__(self, trigPin, echoPin):
