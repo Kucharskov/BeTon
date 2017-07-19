@@ -10,6 +10,4 @@ Be "Turbo Oafish Nothing" robot działający na Raspberry Pi i oprogramowany w P
 
 ## W planach:
 - Dołączenie i oprogramowanie czujnika "śledzenia linii"
-- Oświetlenie robota
 - Dopisanie interfejsu obsługi w przeglądarce
-- "Skrzynia biegów" przy użyciu klasy koła WheelPWD
