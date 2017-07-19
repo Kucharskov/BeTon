@@ -3,6 +3,7 @@ import time
 import random
 from Elements.Wheel import Wheel
 from Elements.HCSR04 import HCSR04
+from Elements.Light import Light
 
 '''Be "Turbo Oafish Nothing"'''
 '''BeTon - Simple Raspberry Pi robot'''
@@ -17,6 +18,7 @@ class BeTon:
 		self.rWheel = Wheel(rfPin, rbPin)
 		self.rotatetime = rotatetime
 		self.setupradar = False
+		self.lights = []
 
 	def stop(self):
 		self.lWheel.stop()
@@ -65,6 +67,17 @@ class BeTon:
 	def setupRadar(self, trigPin, echoPin):
 		self.radar = HCSR04(trigPin, echoPin)
 		self.setupradar = True
+
+	def setupLights(self, *pins):
+		for p in pins:
+			self.lights.append(Light(p))
+			
+	def setLights(self, mode):
+		for l in self.lights:
+			if mode == True:
+				l.turnOn()
+			else:
+				l.turnOff()
 
 	def automove(self, log = False):
 		if self.setupradar:
