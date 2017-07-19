@@ -15,11 +15,11 @@ class HCSR04:
 		GPIO.setup(self.trigPin, GPIO.OUT, initial=GPIO.LOW)
 		GPIO.setup(self.echoPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-		time.sleep(0.001)
+		time.sleep(.001)
 
 	def read(self):
 		GPIO.output(self.trigPin, 1)
-		time.sleep(0.001)
+		time.sleep(.001)
 		GPIO.output(self.trigPin, 0)
 
 		start = 0
