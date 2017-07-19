@@ -57,9 +57,12 @@ class BeTon:
 		time.sleep(t)
 		self.stop()
 
-	def automove(self, s):
-		if (s.read() > 45 and s.read() < 500):
-			self.goForwardTime(0.5)
-			time.sleep(.15)
+	def automove(self, sensor):
+		#print(sensor.read())
+		if (sensor.read() > 35):
+			self.goForward()
 		else:
-			self.turnLeft(90)
+			self.goBackwardTime(.15)
+			self.turnLeft(45)
+			if (sensor.read() < 35):
+				self.turnRight(90)
