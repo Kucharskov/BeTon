@@ -35,7 +35,7 @@ class BeTon:
 		self.lWheel.goBackward()
 		self.rWheel.goBackward()
 
-	def turnLeft(self, deg = 90):
+	def turnRight(self, deg = 90):
 		self.stop()
 		self.rWheel.goForward()
 		self.lWheel.goBackward()
@@ -45,7 +45,7 @@ class BeTon:
 		
 		self.stop()
 
-	def turnRight(self, deg = 90):
+	def turnLeft(self, deg = 90):
 		self.stop()
 		self.lWheel.goForward()
 		self.rWheel.goBackward()
