@@ -80,19 +80,28 @@ class BeTon:
 			else:
 				l.turnOff()
 
+	def getDistance(self, acc = 2):
+		if self.setupradar:
+			if acc == 0:
+				return int(self.radar.read())
+			else:
+				return round(self.radar.read(), acc) 
+	
 	def automove(self, log = False):
 		if self.setupradar:
 			if log:
-				print(self.radar.read())
+				print(self.getDistance())
 
-			if (self.radar.read() > 35):
+			if (self.getDistance() > 35):
 				self.goForwardTime(.15)
 			else:
 				self.goBackwardTime(.15)
-				if random.randint(0, 1):
-					self.turnRight(45)
-				else:
-					self.turnLeft(45)
+				self.turnLeft(45)
+				distLeft = self.getDistance()
+				self.turnRight(90)
+				distRight = self.getDistance()
+				if distLeft > distRight:
+					self.turnLeft(90)
 
 	def __del__(self):
 		self.stop()
